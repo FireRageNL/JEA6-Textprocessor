@@ -15,6 +15,7 @@ public class Receiver {
 	public void recieve(TextProcess text){
 		if(text.mostOccuringCharacter){
 			sender.SendMessage(service.getMostOccuringLetter(text.text,text.id));
+			text = null;
 		}
 	}
 

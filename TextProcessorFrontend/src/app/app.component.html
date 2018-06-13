@@ -15,7 +15,7 @@
 </div>
 <button value="SENDO" type="submit" (click)="sendText()">Analyze!</button>
 <div>
-  amount of words = {{amountOfWords}}
-  Most occuring character : {{mostChar}}, with {{mostAmount}} of times in the text
-</div>
 
+  <span *ngIf="textModel.amountOfWords">amount of words : {{amountOfWords}} </span> <br/>
+  <span *ngIf="textModel.mostOccuringCharacter">Most occuring character : {{mostChar}}, with {{mostAmount}} of times in the text</span>
+</div>

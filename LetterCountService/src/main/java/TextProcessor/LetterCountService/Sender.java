@@ -14,5 +14,6 @@ public class Sender {
 
 	public void SendMessage(MostUsedCharacterModel model){
 		this.template.convertAndSend(replyQueue.getName(),model);
+		model = null;
 	}
 }
