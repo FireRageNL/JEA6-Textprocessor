@@ -21,26 +21,14 @@ public class LetterCountServiceApplication implements RabbitListenerConfigurer {
 		SpringApplication.run(LetterCountServiceApplication.class, args);
 	}
 
-	private static final String topicName = "TextsToProcess";
-
 	@Bean
-	public FanoutExchange fanout(){
-		return new FanoutExchange(topicName);
-	}
-
-	@Bean
-	public Queue queue1(){
-		return new AnonymousQueue();
+	public Queue mostJob(){
+		return new Queue("MostJob");
 	}
 
 	@Bean
 	public Queue replyQueue(){
 		return new Queue("MostOccuringLetter");
-	}
-
-	@Bean
-	public Binding binding1(FanoutExchange fanout, Queue queue1){
-		return BindingBuilder.bind(queue1).to(fanout);
 	}
 
 	@Bean

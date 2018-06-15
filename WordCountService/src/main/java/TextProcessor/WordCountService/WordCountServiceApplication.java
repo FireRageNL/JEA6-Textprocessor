@@ -21,26 +21,14 @@ public class WordCountServiceApplication implements RabbitListenerConfigurer {
 		SpringApplication.run(WordCountServiceApplication.class, args);
 	}
 
-	private static final String topicName = "TextsToProcess";
-
 	@Bean
-	public FanoutExchange fanout(){
-		return new FanoutExchange(topicName);
-	}
-
-	@Bean
-	public Queue queue1(){
-		return new AnonymousQueue();
+	public Queue wordJob(){
+		return new Queue("WordCountJob");
 	}
 
 	@Bean
 	public Queue replyQueue(){
 		return new Queue("WordCountReply");
-	}
-
-	@Bean
-	public Binding binding1(FanoutExchange fanout, Queue queue1){
-		return BindingBuilder.bind(queue1).to(fanout);
 	}
 
 	@Bean

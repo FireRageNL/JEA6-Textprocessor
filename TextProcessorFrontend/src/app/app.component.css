@@ -2,3 +2,23 @@ textarea{
   height:500px;
   width:500px;
 }
+
+.container{
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 20px;
+
+}
+
+.text{
+  flex-direction: column;
+  justify-content:flex-end ;
+  display: flex;
+}
+
+.options{
+  flex-direction: column;
+  display: flex;
+  margin-left: 15px;
+  justify-content: flex-end;
+}

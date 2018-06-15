@@ -1,21 +1,26 @@
 <!--The content below is only a placeholder and can be replaced.-->
 
 <h2>Enter text to be analyzed</h2>
-<div>
-  <textarea [(ngModel)]="textModel.text" class="form-control" placeholder="Enter that what you want to kweet!"
-            aria-label="Message"> </textarea>
-  <label>
-    Word count:
-    <input type="checkbox" [(ngModel)]="textModel.amountOfWords">
-  </label>
-  <label>
-    Most occuring character:
-    <input type="checkbox" [(ngModel)]="textModel.mostOccuringCharacter">
-  </label>
-</div>
-<button value="SENDO" type="submit" (click)="sendText()">Analyze!</button>
-<div>
+<div class="container">
+  <div class="text">
+      <textarea [(ngModel)]="textModel.text" class="form-control" placeholder="Enter that what you want to analyze!"
+                aria-label="Message"> </textarea>
+    <button value="SENDO" type="submit" (click)="sendText()">Analyze!</button>
+  </div>
+  <div class="options">
+    <label>
+      Word count:
+      <input type="checkbox" [(ngModel)]="textModel.amountOfWords">
+    </label>
+    <label>
+      Most occuring character:
+      <input type="checkbox" [(ngModel)]="textModel.mostOccuringCharacter">
+    </label>
+  </div>
 
-  <span *ngIf="textModel.amountOfWords">amount of words : {{amountOfWords}} </span> <br/>
-  <span *ngIf="textModel.mostOccuringCharacter">Most occuring character : {{mostChar}}, with {{mostAmount}} of times in the text</span>
+
+</div>
+<div>
+  <span *ngIf="amountOfWords">Amount of words : {{amountOfWords}} </span> <br/>
+  <span *ngIf="mostChar">Most occurring character : {{mostChar}}, with {{mostAmount}} of times in the text</span>
 </div>

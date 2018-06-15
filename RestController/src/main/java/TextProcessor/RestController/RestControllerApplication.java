@@ -30,6 +30,16 @@ public class RestControllerApplication {
 	}
 
 	@Bean
+	public Queue wordJob(){
+		return new Queue("WordCountJob");
+	}
+
+	@Bean
+	public Queue mostJob(){
+		return new Queue("MostJob");
+	}
+
+	@Bean
 	public Queue replyQueue(){
 		return new Queue("WordCountReply");
 	}

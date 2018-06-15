@@ -11,9 +11,10 @@ public class Receiver {
 	@Autowired
 	private Sender sender;
 
-	@RabbitListener(queues = "#{queue1.name}")
+	@RabbitListener(queues = "WordCountJob")
 	public void recieve(TextProcess text){
 		if(text.amountOfWords){
+			System.out.println("Processing wordcount job!");
 			int Amount = service.getWordCount(text.text);
 			WordCountModel count = new WordCountModel(Amount,text.id);
 			sender.SendMessage(count);
